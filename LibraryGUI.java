@@ -295,11 +295,18 @@ public class LibraryGUI extends JFrame {
     }
     
     private void logMessage(String message) {
-        outputArea.append(message + "\n");
-        outputArea.setCaretPosition(outputArea.getDocument().getLength());
+        if (outputArea != null) {
+            outputArea.append(message + "\n");
+            outputArea.setCaretPosition(outputArea.getDocument().getLength());
+        }
     }
     
     public static void main(String[] args) {
+        // macOS-specific system properties for proper GUI display
+        System.setProperty("apple.laf.useScreenMenuBar", "true");
+        System.setProperty("apple.awt.application.name", "The Coding Library");
+        System.setProperty("apple.awt.application.appearance", "system");
+        
         // Use SwingUtilities to ensure GUI is created on the Event Dispatch Thread
         SwingUtilities.invokeLater(() -> {
             try {
@@ -309,7 +316,12 @@ public class LibraryGUI extends JFrame {
                 e.printStackTrace();
             }
             
-            new LibraryGUI();
+            LibraryGUI gui = new LibraryGUI();
+            // Explicitly bring window to front on macOS
+            gui.setAlwaysOnTop(true);
+            gui.setAlwaysOnTop(false);
+            gui.toFront();
+            gui.requestFocus();
         });
     }
 }
