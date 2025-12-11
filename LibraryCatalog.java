@@ -1,3 +1,8 @@
+//Project Name: The Coding Library
+//Author: Trinity Young
+//Date: 12/5/2025
+//This class manages the collection of books using ArrayList data structures.
+
 import java.util.ArrayList;
 
 public class LibraryCatalog {
