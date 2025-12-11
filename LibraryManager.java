@@ -57,12 +57,7 @@ public class LibraryManager {
         
         Book book = findBookByIsbn(isbn);
         if (book != null) {
-            if (book.isOut()) {
-                book.checkoutBook(); // This method toggles the status
-                System.out.println("Book '" + book.getTitle() + "' has been checked in. Thank you!");
-            } else {
-                System.out.println("This book is already available in the library.");
-            }
+            book.checkinBook();
         } else {
             System.out.println("Book not found with ISBN: " + isbn);
         }

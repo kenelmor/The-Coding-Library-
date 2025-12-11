@@ -3,8 +3,6 @@
 //Date: 12/4/2025
 //This class creates the attributes for each book.
 
-package Library;
-
 public class Book {
     private String title;
     private String author;
@@ -36,18 +34,28 @@ public class Book {
 	return isOut;
     }
 
-//Method handling taking out books
+//Method handling checking out books
     public void checkoutBook() {
 	if (!isOut) {
 	    isOut = true;
 	    System.out.println("You have taken out: " + title);
 	} else {
+	    System.out.println("This book is already checked out.");
+	}
+    }
+
+    //Method handling checking in books
+    public void checkinBook() {
+	if (isOut) {
+	    isOut = false;
 	    System.out.println("You have returned " + title + " Thank you!");
+	} else {
+	    System.out.println("This book is already available in the library.");
 	}
     }
 
     @Override
     public String toString() {
-	return "Book [Title: " + title + "\n Author: " + author + "\n ISBN: " + isbn + "\n Avalible: " + !isOut;
+	return "Book [Title: " + title + "\n Author: " + author + "\n ISBN: " + isbn + "\n Available: " + !isOut + "]";
     }
 }
