@@ -34,6 +34,15 @@ public class Book {
 	return isOut;
     }
 
+    // Additional getter/setter for compatibility with LibraryCatalog
+    public boolean isCheckedOut() {
+	return isOut;
+    }
+
+    public void setCheckedOut(boolean checkedOut) {
+	this.isOut = checkedOut;
+    }
+
 //Method handling checking out books
     public void checkoutBook() {
 	if (!isOut) {
