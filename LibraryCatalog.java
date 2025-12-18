@@ -1,3 +1,8 @@
+//Project Name: The Coding Library
+//Author: Trinity Young
+//Date: 12/5/2025
+//This class manages the collection of books using ArrayList data structures.
+
 import java.util.ArrayList;
 
 public class LibraryCatalog {
@@ -83,5 +88,10 @@ public class LibraryCatalog {
             }
         }
         return null;
+    }
+
+    // Get all books in the catalog
+    public ArrayList<Book> getAllBooks() {
+        return new ArrayList<>(books);
     }
 }
